@@ -4,10 +4,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUPHubPoints", "PUPHubPoints.csproj", "{BC13AECC-6FDE-4996-9B42-F2EA973994AF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0AE33434-2AED-40FA-AB21-5786244DBA70} = {0AE33434-2AED-40FA-AB21-5786244DBA70}
+		{E5CB2ADB-91FD-4878-878A-7A02D95DFEF1} = {E5CB2ADB-91FD-4878-878A-7A02D95DFEF1}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PointsBusinessRules", "..\PointsBusinessRules\PointsBusinessRules.csproj", "{E5B3B737-1066-479E-92CB-6DA8F53F3417}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PointsBusinessRules", "PointsBusinessRules\PointsBusinessRules.csproj", "{0AE33434-2AED-40FA-AB21-5786244DBA70}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PointsDataLayer", "..\PointsDataLayer\PointsDataLayer.csproj", "{05D3DA34-7E22-4F57-9181-7518EEC10570}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PointsDataLayer", "PointsDataLayer\PointsDataLayer.csproj", "{E5CB2ADB-91FD-4878-878A-7A02D95DFEF1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +23,14 @@ Global
 		{BC13AECC-6FDE-4996-9B42-F2EA973994AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC13AECC-6FDE-4996-9B42-F2EA973994AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC13AECC-6FDE-4996-9B42-F2EA973994AF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E5B3B737-1066-479E-92CB-6DA8F53F3417}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E5B3B737-1066-479E-92CB-6DA8F53F3417}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E5B3B737-1066-479E-92CB-6DA8F53F3417}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E5B3B737-1066-479E-92CB-6DA8F53F3417}.Release|Any CPU.Build.0 = Release|Any CPU
-		{05D3DA34-7E22-4F57-9181-7518EEC10570}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{05D3DA34-7E22-4F57-9181-7518EEC10570}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{05D3DA34-7E22-4F57-9181-7518EEC10570}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{05D3DA34-7E22-4F57-9181-7518EEC10570}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AE33434-2AED-40FA-AB21-5786244DBA70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AE33434-2AED-40FA-AB21-5786244DBA70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AE33434-2AED-40FA-AB21-5786244DBA70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AE33434-2AED-40FA-AB21-5786244DBA70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5CB2ADB-91FD-4878-878A-7A02D95DFEF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5CB2ADB-91FD-4878-878A-7A02D95DFEF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5CB2ADB-91FD-4878-878A-7A02D95DFEF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5CB2ADB-91FD-4878-878A-7A02D95DFEF1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
