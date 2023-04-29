@@ -1,12 +1,13 @@
-﻿using System;
+﻿using PointsDataLayer;
+using System;
 using System.Collections.Generic;
 
 internal class Program
 {
     static List<string> actions = new List<string>()
             { "view points (type 0)", "use points (type 1)", "exit app (type 2)" };
-    static string studentNumber = "2011-00066-BN-0";
-    static int points = 100;
+    //static string stuentNumber = "2011-00066-BN-0"; 
+    //static int points = 100; 
     static void Main(string[] args)
     {
         Console.WriteLine("PUP-Points (Student) <press any key to continue>");
@@ -45,29 +46,29 @@ internal class Program
         }
         Console.WriteLine("Application exiting...");
         Console.ReadKey();
-    }
+    } //ui
 
-    static bool ValidateStudentNumber()
+    static bool ValidateStudentNumber() //data //validation
     {
         Console.Write("Please enter your Student Number: ");
         var userInput = Console.ReadLine();
 
-        return userInput.Equals(studentNumber) ? true : false; //ternary operators
+        return userInput.Equals(InMemoryData.studentNumber) ? true : false; //ternary operators
     }
 
-    static string GetCurrentPoints()
+    static string GetCurrentPoints() //bl
     {
-        return $"Total points as of {DateTime.Now}: {points}";
+        return $"Total points as of {DateTime.Now}: {InMemoryData.points}";
     }
 
-    static void UsePoints()
+    static void UsePoints() //data //business layer
     {
         Console.Write("How many points do you want to use? ");
         var pointsToUse = Convert.ToInt32(Console.ReadLine());
 
-        if (pointsToUse <= points)
+        if (pointsToUse <= InMemoryData.points)
         {
-            points -= pointsToUse;
+            InMemoryData.points -= pointsToUse;
             Console.WriteLine($"Successfully used {pointsToUse} points. ");
         }
         else
@@ -78,14 +79,14 @@ internal class Program
         }
     }
 
-    static int GetUserAction()
+    static int GetUserAction() //ui
     {
         ShowOptions();
         Console.Write("ACTION: ");
         return Convert.ToInt32(Console.ReadLine());
     }
 
-    static void ShowOptions()
+    static void ShowOptions() //ui
     {
         Console.WriteLine("Choose any of the following options. ");
 
