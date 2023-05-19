@@ -1,5 +1,6 @@
 ﻿
 using PointsBusinessRules;
+using PUPHubModels;
 using System;
 using System.Collections.Generic;
 
@@ -7,6 +8,11 @@ internal class Program
 {
     static List<string> actions = new List<string>()
             { "view points (type 0)", "use points (type 1)", "exit app (type 2)" };
+
+    static StudentRulesService studentRulesService = new StudentRulesService();
+    static PointsRulesService pointsRulesService = new PointsRulesService();
+
+    static Student student;
 
     static void Main(string[] args)
     {
@@ -16,8 +22,9 @@ internal class Program
         Console.Write("Please enter your Student Number: ");
         var userInput = Console.ReadLine();
 
-        if (StudentNumberRules.ValidateStudentNumber(userInput))
+        if (studentRulesService.IsStudentExists(userInput))
         {
+            student = studentRulesService.GetStudent(userInput);
             ProcessActionsForStudents();
         }
         else
@@ -35,7 +42,8 @@ internal class Program
             switch (useraction)
             {
                 case 0:
-                    Console.WriteLine($"Total points as of {DateTime.Now.Date}: {PointsRules.GetCurrentPoints()}");
+                    Console.WriteLine($"Total points as of {DateTime.Now.Date}: " +
+                        $"{pointsRulesService.GetCurrentPoint(student)}");
                     break;
                 case 1:
                     UsePoints();
@@ -55,17 +63,17 @@ internal class Program
         Console.Write("How many points do you want to use? ");
         var pointsToUse = Convert.ToInt32(Console.ReadLine());
 
-        if (PointsRules.UsePoints(pointsToUse))
+        if (pointsRulesService.UseStudentPoints(student, pointsToUse) != -1)
         {
             Console.WriteLine($"Successfully used {pointsToUse} points. ");
         }
         else
         {
             Console.WriteLine($"Insufficient balance. Please try again.");
-            Console.WriteLine(PointsRules.GetCurrentPoints());
+            Console.WriteLine(pointsRulesService.GetCurrentPoint(student));
         }
 
-        Console.WriteLine($"Total points as of {DateTime.Now.Date}: {PointsRules.GetCurrentPoints()}");
+        Console.WriteLine($"Total points as of {DateTime.Now.Date}: {pointsRulesService.GetCurrentPoint(student)}");
     }
 
     static int GetUserAction() //ui
