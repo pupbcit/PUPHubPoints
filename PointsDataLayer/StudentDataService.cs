@@ -1,6 +1,7 @@
 ﻿using PUPHubModels;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,7 +35,7 @@ namespace PointsDataLayer
                 case DataSource.InMemory:
                     Students = memoryData.GetStudents();
                     break;
-                case DataSource.JsonFile:
+                case DataSource.InJsonFile:
                     Students = jsonFile.GetStudents();
                     break;
                 case DataSource.Database:

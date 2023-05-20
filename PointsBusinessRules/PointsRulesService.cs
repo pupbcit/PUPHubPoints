@@ -11,7 +11,7 @@ namespace PointsBusinessRules
 
         public PointsRulesService()
         {
-            studentPointDataService = new StudentPointDataService(DataSource.JsonFile);
+            studentPointDataService = new StudentPointDataService(DataSource.InMemory);
         }
 
         public List<StudentPoint> GetStudentPoints()
@@ -38,11 +38,14 @@ namespace PointsBusinessRules
 
         public int UseStudentPoints(Student student, int points)
         {
+            //Get student points
             var studentPoint = studentPointDataService.GetStudentPoint(student.StudentNumber);
             var newPoints = 0;
 
+            //check if point is enough
             if (studentPoint.Point >= points)
             {
+                //less points to the current points
                 studentPoint.Point = studentPoint.Point - points;
                 studentPointDataService.UpdatePoints(studentPoint);
                 newPoints = studentPoint.Point;

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 
 internal class Program
 {
+    
     static List<string> actions = new List<string>()
             { "view points (type 0)", "use points (type 1)", "exit app (type 2)" };
 

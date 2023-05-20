@@ -14,7 +14,7 @@ namespace PointsBusinessRules
 
         public StudentRulesService()
         {
-            studentDataService = new StudentDataService(DataSource.JsonFile);
+            studentDataService = new StudentDataService(DataSource.InMemory);
         }
 
         public bool IsStudentExists(string studentNumber)

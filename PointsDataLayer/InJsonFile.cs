@@ -3,9 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace PointsDataLayer
 {
@@ -78,14 +76,17 @@ namespace PointsDataLayer
                     .ToList();
             }
         }
+
         private void GetStudentsFromFile()
         {
             using (var jsonFileReader = File.OpenText(this._jsonStudentFileName))
             {
                 this.Students = JsonSerializer.Deserialize<List<Student>>
-                    (jsonFileReader.ReadToEnd(), new JsonSerializerOptions { PropertyNameCaseInsensitive = true })
+                    (jsonFileReader.ReadToEnd(), new JsonSerializerOptions 
+                    { PropertyNameCaseInsensitive = true })
                     .ToList();
             }
         }
+
     }
 }

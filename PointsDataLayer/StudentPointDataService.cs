@@ -34,7 +34,7 @@ namespace PointsDataLayer
                 case DataSource.InMemory:
                     StudentPoints = memoryData.GetStudentPoints();
                     break;
-                case DataSource.JsonFile:
+                case DataSource.InJsonFile:
                     StudentPoints = jsonFile.GetStudentPoints();
                     break;
                 case DataSource.Database:
@@ -75,7 +75,7 @@ namespace PointsDataLayer
             {
                 case DataSource.InMemory:
                     break;
-                case DataSource.JsonFile:
+                case DataSource.InJsonFile:
                     jsonFile.SaveStudentPoints(StudentPoints);
                     break;
                 case DataSource.Database:
