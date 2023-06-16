@@ -1,8 +1,22 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="PointsBusinessRules\**" />
+    <Compile Remove="PointsDataLayer\**" />
+    <EmbeddedResource Remove="PointsBusinessRules\**" />
+    <EmbeddedResource Remove="PointsDataLayer\**" />
+    <None Remove="PointsBusinessRules\**" />
+    <None Remove="PointsDataLayer\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="PointsBusinessRules\PointsBusinessRules.csproj" />
+    <ProjectReference Include="PointsDataLayer\PointsDataLayer.csproj" />
+  </ItemGroup>
 
 </Project>
