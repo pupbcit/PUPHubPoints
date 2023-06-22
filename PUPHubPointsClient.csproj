@@ -18,17 +18,29 @@
     <Compile Remove="PointsBusinessRules\**" />
     <Compile Remove="PointsDataLayer\**" />
     <Compile Remove="PUPHubModels\**" />
+    <Compile Remove="PUPHubPointsBusinessRules\**" />
+    <Compile Remove="PUPHubPointsDataServices\**" />
+    <Compile Remove="PUPHubPointsModels\**" />
     <EmbeddedResource Remove="PointsBusinessRules\**" />
     <EmbeddedResource Remove="PointsDataLayer\**" />
     <EmbeddedResource Remove="PUPHubModels\**" />
+    <EmbeddedResource Remove="PUPHubPointsBusinessRules\**" />
+    <EmbeddedResource Remove="PUPHubPointsDataServices\**" />
+    <EmbeddedResource Remove="PUPHubPointsModels\**" />
     <None Remove="PointsBusinessRules\**" />
     <None Remove="PointsDataLayer\**" />
     <None Remove="PUPHubModels\**" />
+    <None Remove="PUPHubPointsBusinessRules\**" />
+    <None Remove="PUPHubPointsDataServices\**" />
+    <None Remove="PUPHubPointsModels\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="PointsBusinessRules\PointsBusinessRules.csproj" />
-    <ProjectReference Include="PointsDataLayer\PointsDataLayer.csproj" />
+    <ProjectReference Include="PointsBusinessRules\PUPHubPointsBusinessRules.csproj" />
+    <ProjectReference Include="PointsDataLayer\PUPHubPointsDataServices.csproj" />
+    <ProjectReference Include="PUPHubPointsBusinessRules\PUPHubPointsBusinessRules.csproj" />
+    <ProjectReference Include="PUPHubPointsDataServices\PUPHubPointsDataServices.csproj" />
+    <ProjectReference Include="PUPHubPointsModels\PUPHubPointsModels.csproj" />
   </ItemGroup>
 
 </Project>

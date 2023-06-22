@@ -13,7 +13,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PointsDataLayer\PointsDataLayer.csproj" />
+    <ProjectReference Include="..\PUPHubPointsDataServices\PUPHubPointsDataServices.csproj" />
+    <ProjectReference Include="..\PUPHubPointsModels\PUPHubPointsModels.csproj" />
   </ItemGroup>
 
 </Project>
