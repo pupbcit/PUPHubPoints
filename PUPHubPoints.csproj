@@ -1,17 +1,29 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net5.0</TargetFramework>
+	  <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+	  <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+	  <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+	  <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
+	  <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+	  <GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
+	  <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+	  <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+	  <OutputType>Exe</OutputType>
+	  <TargetFramework>net5.0</TargetFramework>
+
   </PropertyGroup>
 
   <ItemGroup>
     <Compile Remove="PointsBusinessRules\**" />
     <Compile Remove="PointsDataLayer\**" />
+    <Compile Remove="PUPHubModels\**" />
     <EmbeddedResource Remove="PointsBusinessRules\**" />
     <EmbeddedResource Remove="PointsDataLayer\**" />
+    <EmbeddedResource Remove="PUPHubModels\**" />
     <None Remove="PointsBusinessRules\**" />
     <None Remove="PointsDataLayer\**" />
+    <None Remove="PUPHubModels\**" />
   </ItemGroup>
 
   <ItemGroup>
