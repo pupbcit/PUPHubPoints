@@ -3,17 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PUPHubPoints", "PUPHubPoints.csproj", "{BC13AECC-6FDE-4996-9B42-F2EA973994AF}"
-	ProjectSection(ProjectDependencies) = postProject
-		{0AE33434-2AED-40FA-AB21-5786244DBA70} = {0AE33434-2AED-40FA-AB21-5786244DBA70}
-		{E5CB2ADB-91FD-4878-878A-7A02D95DFEF1} = {E5CB2ADB-91FD-4878-878A-7A02D95DFEF1}
-	EndProjectSection
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PUPHubPointsClient", "PUPHubPointsClient.csproj", "{BC13AECC-6FDE-4996-9B42-F2EA973994AF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PointsBusinessRules", "PointsBusinessRules\PointsBusinessRules.csproj", "{0AE33434-2AED-40FA-AB21-5786244DBA70}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PUPHubPointsModels", "PUPHubPointsModels\PUPHubPointsModels.csproj", "{544044AB-036B-4730-802C-FF139F54EFEA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PointsDataLayer", "PointsDataLayer\PointsDataLayer.csproj", "{E5CB2ADB-91FD-4878-878A-7A02D95DFEF1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PUPHubPointsDataServices", "PUPHubPointsDataServices\PUPHubPointsDataServices.csproj", "{9F0A0D69-BD42-451D-A0B5-6431F1E2740E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PUPHubModels", "PUPHubModels\PUPHubModels.csproj", "{A83FC9E0-701E-4F94-AA84-35F50EB5A362}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PUPHubPointsBusinessRules", "PUPHubPointsBusinessRules\PUPHubPointsBusinessRules.csproj", "{D99E88F0-404F-4F62-A336-66AD4B450F7C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,18 +21,18 @@ Global
 		{BC13AECC-6FDE-4996-9B42-F2EA973994AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC13AECC-6FDE-4996-9B42-F2EA973994AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC13AECC-6FDE-4996-9B42-F2EA973994AF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0AE33434-2AED-40FA-AB21-5786244DBA70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0AE33434-2AED-40FA-AB21-5786244DBA70}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0AE33434-2AED-40FA-AB21-5786244DBA70}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0AE33434-2AED-40FA-AB21-5786244DBA70}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E5CB2ADB-91FD-4878-878A-7A02D95DFEF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E5CB2ADB-91FD-4878-878A-7A02D95DFEF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E5CB2ADB-91FD-4878-878A-7A02D95DFEF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E5CB2ADB-91FD-4878-878A-7A02D95DFEF1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A83FC9E0-701E-4F94-AA84-35F50EB5A362}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A83FC9E0-701E-4F94-AA84-35F50EB5A362}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A83FC9E0-701E-4F94-AA84-35F50EB5A362}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A83FC9E0-701E-4F94-AA84-35F50EB5A362}.Release|Any CPU.Build.0 = Release|Any CPU
+		{544044AB-036B-4730-802C-FF139F54EFEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{544044AB-036B-4730-802C-FF139F54EFEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{544044AB-036B-4730-802C-FF139F54EFEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{544044AB-036B-4730-802C-FF139F54EFEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F0A0D69-BD42-451D-A0B5-6431F1E2740E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F0A0D69-BD42-451D-A0B5-6431F1E2740E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F0A0D69-BD42-451D-A0B5-6431F1E2740E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F0A0D69-BD42-451D-A0B5-6431F1E2740E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D99E88F0-404F-4F62-A336-66AD4B450F7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D99E88F0-404F-4F62-A336-66AD4B450F7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D99E88F0-404F-4F62-A336-66AD4B450F7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D99E88F0-404F-4F62-A336-66AD4B450F7C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

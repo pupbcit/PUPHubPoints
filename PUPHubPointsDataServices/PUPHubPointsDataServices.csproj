@@ -13,7 +13,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PUPHubModels\PUPHubModels.csproj" />
+    <ProjectReference Include="..\PUPHubPointsModels\PUPHubPointsModels.csproj" />
   </ItemGroup>
 
 </Project>
