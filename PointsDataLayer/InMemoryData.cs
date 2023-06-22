@@ -9,7 +9,7 @@ namespace PointsDataLayer
         private List<StudentPoint> StudentPoints;
         private const int memoryDefaultPoints = 100;
 
-        public InMemoryData()
+        public InMemoryData() //constructor
         {
             Students = new List<Student>();
             StudentPoints = new List<StudentPoint>();
