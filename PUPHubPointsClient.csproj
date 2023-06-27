@@ -36,8 +36,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="PointsBusinessRules\PUPHubPointsBusinessRules.csproj" />
-    <ProjectReference Include="PointsDataLayer\PUPHubPointsDataServices.csproj" />
     <ProjectReference Include="PUPHubPointsBusinessRules\PUPHubPointsBusinessRules.csproj" />
     <ProjectReference Include="PUPHubPointsDataServices\PUPHubPointsDataServices.csproj" />
     <ProjectReference Include="PUPHubPointsModels\PUPHubPointsModels.csproj" />
