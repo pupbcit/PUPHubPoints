@@ -1,16 +1,17 @@
 ﻿using System.Collections.Generic;
 using PointsDataLayer;
 using PUPHubModels;
+using PUPHubPointsDataServices;
 
 namespace PointsBusinessRules
 {
     public class PointsRulesService
     {
-        private StudentPointDataService studentPointDataService;
+        private StudentPointsDataService studentPointDataService;
 
         public PointsRulesService()
         {
-            studentPointDataService = new StudentPointDataService(DataSource.InMemory);
+            studentPointDataService = new StudentPointsDataService(new SqlData());
         }
 
         public List<StudentPoint> GetStudentPoints()

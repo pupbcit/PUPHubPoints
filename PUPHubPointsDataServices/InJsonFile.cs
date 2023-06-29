@@ -1,4 +1,5 @@
 ﻿using PUPHubModels;
+using PUPHubPointsDataServices;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -7,7 +8,7 @@ using System.Text.Json;
 
 namespace PointsDataLayer
 {
-    public class InJsonFile
+    public class InJsonFile : IStudentPointsData
     {
         private List<Student> Students;
         private List<StudentPoint> StudentPoints;
@@ -88,5 +89,9 @@ namespace PointsDataLayer
             }
         }
 
+        public void UpdateStudentPoint(StudentPoint studentPoint)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
