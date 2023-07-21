@@ -6,41 +6,22 @@ namespace PointsDataLayer
 {
     public class StudentPointsDataService
     {
-        private List<StudentPoint> StudentPoints { get; set; }
-
-        private DataSource dataSource;
-        private InMemoryData memoryData = new InMemoryData();
-        private InJsonFile jsonFile = new InJsonFile();
 
         IStudentPointsData _studentPointsData;
 
         public StudentPointsDataService(IStudentPointsData studentPointsData)
         {
             _studentPointsData = studentPointsData;
-
-            StudentPoints = new List<StudentPoint>();
-
-            StudentPoints = studentPointsData.GetStudentPoints();
         }
 
         public List<StudentPoint> GetStudentPoints()
         {
-            return StudentPoints;
+            return _studentPointsData.GetStudentPoints();
         }
 
         public StudentPoint GetStudentPoint(string studentNumber)
         {
-            StudentPoint foundStudenPoint = new StudentPoint();
-
-            foreach (var studentpoint in StudentPoints)
-            {
-                if (studentpoint.Student.StudentNumber == studentNumber)
-                {
-                    foundStudenPoint = studentpoint;
-                }
-            }
-
-            return foundStudenPoint;
+            return _studentPointsData.GetStudentPoints(studentNumber);
         }
 
         public void UpdatePoints(StudentPoint studentPoint)
@@ -48,5 +29,9 @@ namespace PointsDataLayer
             _studentPointsData.UpdateStudentPoint(studentPoint);
         }
 
+        public int AddStudentPoint(StudentPoint studentPoint)
+        {
+            return _studentPointsData.AddStudentPoints(studentPoint);
+        }
     }
 }

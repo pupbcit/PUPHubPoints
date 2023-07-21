@@ -11,6 +11,7 @@
 	  <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
 	  <OutputType>Exe</OutputType>
 	  <TargetFramework>net5.0</TargetFramework>
+	  <BaseOutputPath>C:\Users\indaleen\source\repos\2223-1\DemoAPI\Web.API\bin\Debug\net5.0</BaseOutputPath>
 
   </PropertyGroup>
 

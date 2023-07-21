@@ -396,3 +396,6 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+PUPHubPointsClient - Backup.csproj
+PUPHubPointsDataServices/PUPHubPointsDataServices.csproj
+PUPHubPointsDataServices/PUPHubPointsDataServices.csproj

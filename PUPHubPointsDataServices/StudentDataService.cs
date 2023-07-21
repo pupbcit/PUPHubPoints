@@ -8,61 +8,29 @@ using System.Threading.Tasks;
 
 namespace PointsDataLayer
 {
+    //All STUDENT data will be coming from JsonFile while STUDENTPOINT data will be in SQL DB
     public class StudentDataService
     {
-        private List<Student> Students { get; set; }
-
-        private DataSource dataSource;
-        private InMemoryData memoryData = new InMemoryData();
-        private InJsonFile jsonFile = new InJsonFile();
+        private InJsonFile jsonFile;
         
         public StudentDataService()
         {
-            Students = new List<Student>();
-            dataSource = DataSource.InMemory;
-
-            Students = memoryData.GetStudents();
-        }
-
-        public StudentDataService(DataSource source)
-        {
-            Students = new List<Student>();
-
-            dataSource = source;
-
-            switch (dataSource)
-            {
-                case DataSource.InMemory:
-                    Students = memoryData.GetStudents();
-                    break;
-                case DataSource.InJsonFile:
-                    Students = jsonFile.GetStudents();
-                    break;
-                case DataSource.Database:
-                    break;
-                default:
-                    break;
-            }
+            jsonFile = new InJsonFile();
         }
 
         public List<Student> GetStudents()
         {
-            return Students;
+            return jsonFile.GetStudents();
         }
 
         public Student GetStudent(string studentNumber)
         {
-            Student foundStudent = new Student();
-
-            foreach (var student in Students)
-            {
-                if (student.StudentNumber == studentNumber)
-                {
-                    foundStudent = student;
-                }
-            }
-
-            return foundStudent;
+            return jsonFile.GetStudent(studentNumber);
         }
-    }
+
+		public void CreateStudent(Student student)
+		{
+            jsonFile.AddStudent(student);
+		}
+	}
 }

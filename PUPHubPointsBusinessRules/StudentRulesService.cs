@@ -1,32 +1,33 @@
 ﻿using PointsDataLayer;
 using PUPHubModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PointsBusinessRules
 {
-    public class StudentRulesService
+	public class StudentRulesService
     {
         StudentDataService studentDataService;
 
         public StudentRulesService()
         {
-            studentDataService = new StudentDataService(DataSource.InMemory);
+            studentDataService = new StudentDataService();
         }
 
         public bool IsStudentExists(string studentNumber)
         {
             var result = studentDataService.GetStudent(studentNumber);
 
-            return result != null;
+            return result.StudentNumber != null;
         }
 
         public Student GetStudent(string studentNumber)
         {
             return studentDataService.GetStudent(studentNumber);
+        }
+
+        //creating student account for now, but should get from other modules
+        public void CreateStudent(Student student)
+        {
+            studentDataService.CreateStudent(student);
         }
     }
 }

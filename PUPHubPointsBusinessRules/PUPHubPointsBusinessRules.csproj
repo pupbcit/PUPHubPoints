@@ -10,6 +10,7 @@
 	  <GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
 	  <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
 	  <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+	  <BaseOutputPath>C:\Users\indaleen\source\repos\2223-1\PUPHubPoints\bin\Debug\net5.0</BaseOutputPath>
   </PropertyGroup>
 
   <ItemGroup>

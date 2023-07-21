@@ -1,5 +1,4 @@
 ﻿using PUPHubModels;
-using PUPHubPointsDataServices;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -8,27 +7,20 @@ using System.Text.Json;
 
 namespace PointsDataLayer
 {
-    public class InJsonFile : IStudentPointsData
+	public class InJsonFile
     {
         private List<Student> Students;
-        private List<StudentPoint> StudentPoints;
 
-        private string _jsonStudentPointsFileName;
         private string _jsonStudentFileName;
 
         public InJsonFile()
         {
             Students = new List<Student>();
-            StudentPoints = new List<StudentPoint>();
-
-            _jsonStudentPointsFileName = 
-                $"{AppDomain.CurrentDomain.BaseDirectory}/Data/studentpoints.json";
 
             _jsonStudentFileName =
                 $"{AppDomain.CurrentDomain.BaseDirectory}/Data/students.json";
 
             PopulateStudentList();
-            PopulateStudentPointList();
         }
 
         public List<Student> GetStudents()
@@ -36,46 +28,31 @@ namespace PointsDataLayer
             return Students;
         }
 
-        public List<StudentPoint> GetStudentPoints()
+        public Student GetStudent(string studentNumber)
         {
-            return StudentPoints;
+            return Students.Where(x => x.StudentNumber == studentNumber).FirstOrDefault();
         }
 
-        public void SaveStudentPoints(List<StudentPoint> studentPoints)
+        public void AddStudent(Student student)
         {
-            StudentPoints = studentPoints;
-            SaveStudentPointToFile();
+            Students.Add(student);
+            SaveStudentToFile();
         }
 
-        private void SaveStudentPointToFile()
+        private void SaveStudentToFile()
         {
-            using (var outputStream = File.OpenWrite(_jsonStudentPointsFileName))
+            using (var outputStream = File.OpenWrite(_jsonStudentFileName))
             {
-                JsonSerializer.Serialize<List<StudentPoint>>(
+                JsonSerializer.Serialize<List<Student>>(
                     new Utf8JsonWriter(outputStream, new JsonWriterOptions
                     { SkipValidation = true, Indented = true })
-                    , StudentPoints);
+                    , Students);
             }
-        }
-
-        private void PopulateStudentPointList()
-        {
-            GetStudentPointsFromFile();
         }
 
         private void PopulateStudentList()
         {
             GetStudentsFromFile();
-        }
-
-        private void GetStudentPointsFromFile()
-        {
-            using (var jsonFileReader = File.OpenText(this._jsonStudentPointsFileName))
-            {
-                this.StudentPoints = JsonSerializer.Deserialize<List<StudentPoint>>
-                    (jsonFileReader.ReadToEnd(), new JsonSerializerOptions { PropertyNameCaseInsensitive = true })
-                    .ToList();
-            }
         }
 
         private void GetStudentsFromFile()
@@ -87,11 +64,6 @@ namespace PointsDataLayer
                     { PropertyNameCaseInsensitive = true })
                     .ToList();
             }
-        }
-
-        public void UpdateStudentPoint(StudentPoint studentPoint)
-        {
-            throw new NotImplementedException();
         }
     }
 }

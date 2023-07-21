@@ -8,10 +8,12 @@ namespace PointsBusinessRules
     public class PointsRulesService
     {
         private StudentPointsDataService studentPointDataService;
+        private StudentRulesService studentRulesService;
 
         public PointsRulesService()
         {
             studentPointDataService = new StudentPointsDataService(new SqlData());
+            studentRulesService = new StudentRulesService();
         }
 
         public List<StudentPoint> GetStudentPoints()
@@ -19,28 +21,15 @@ namespace PointsBusinessRules
             return studentPointDataService.GetStudentPoints();
         }
 
-        public StudentPoint GetStudentPoint(Student student)
+        public StudentPoint GetStudentPoint(string studentNumber)
         {
-            var studentPoints = GetStudentPoints();
-            var foundStudentPoint = new StudentPoint();
-
-            foreach (var studentPoint in studentPoints)
-            {
-                if (studentPoint.Student.StudentNumber == student.StudentNumber)
-                {
-                    foundStudentPoint = studentPoint;
-                    break;
-                }
-            }
-
-            return foundStudentPoint;
+            return studentPointDataService.GetStudentPoint(studentNumber);
         }
 
-        public int UseStudentPoints(Student student, int points)
+        public StudentPoint UseStudentPoints(string studentNumber, int points)
         {
             //Get student points
-            var studentPoint = studentPointDataService.GetStudentPoint(student.StudentNumber);
-            var newPoints = 0;
+            var studentPoint = GetStudentPoint(studentNumber);
 
             //check if point is enough
             if (studentPoint.Point >= points)
@@ -48,38 +37,54 @@ namespace PointsBusinessRules
                 //less points to the current points
                 studentPoint.Point = studentPoint.Point - points;
                 studentPointDataService.UpdatePoints(studentPoint);
-                newPoints = studentPoint.Point;
             }
-            else
+
+            return studentPoint;
+        }
+
+        public StudentPoint AddStudentPoints(string studentNumber, int points)
+        {
+            var studentPoint = GetStudentPoint(studentNumber);
+
+            if (studentPoint.Student.StudentNumber != null && points > 0)
             {
-                newPoints = -1;
+                studentPoint.Point = studentPoint.Point + points;
+                studentPointDataService.UpdatePoints(studentPoint);
             }
 
-            return newPoints;
+            return studentPoint;
         }
 
-        public int AddStudentPoints(Student student, int points)
+        public int GetCurrentPoint(string studentNumber)
         {
-            var studentPoint = studentPointDataService.GetStudentPoint(student.StudentNumber);
-
-            studentPoint.Point = studentPoint.Point + points;
-            studentPointDataService.UpdatePoints(studentPoint);
-            
-            return studentPoint.Point;
-        }
-
-        public bool IsPointsSufficient(Student student, int points)
-        {
-            var studentPoint = studentPointDataService.GetStudentPoint(student.StudentNumber);
-
-            return studentPoint.Point >= points;
-        }
-
-        public int GetCurrentPoint(Student student)
-        {
-            var studentPoint = GetStudentPoint(student);
+            var studentPoint = GetStudentPoint(studentNumber);
 
             return studentPoint != null ? studentPoint.Point : -1;
+        }
+
+        public int CreateStudentPoints(string studentNumber, int point)
+        {
+            int result = 0;
+
+            //fail this operation if the student is already registered in the points program
+            if (GetStudentPoint(studentNumber).Student == null)
+            {
+                return result;
+            }
+
+            var student = new Student();
+			student = studentRulesService.GetStudent(studentNumber); //call get student api
+            
+            if (student != null)
+            {
+                result = studentPointDataService.AddStudentPoint(new StudentPoint()
+                {
+                    Student = student,
+                    Point = point
+                });
+            }
+
+            return result;
         }
     }
 }
